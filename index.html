@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>html2canvas-demo</title>
+	<meta charset="utf-8" />
+    <style>
+        #gallery {
+            width: 200px;
+            height: 200px;
+            background: url('1.JPG') no-repeat center center;
+            background-size:100%;
+            font-size:30px;
+            color:#fff;
+            text-align:center;
+            /*line-height:200px;*/
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery">截屏后我就归图片了</div>
+    <button>点我截屏</button>
+    <div id="box"></div>
+</body>
+</html>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/html2canvas.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        html2canvas(document.getElementById('gallery'), { 
+            onrendered: function (canvas) { 
+                var canvasData = canvas.toDataURL(); 
+                var eg = new Image(); 
+                eg.src = canvasData;
+                $("button").on("click", function () {
+                    $box = $("#box");
+                    $box.prepend(eg);
+                })
+            }, 
+            // useCORS: true// 此代码针对跨域问题 
+        });
+    })
+</script>
