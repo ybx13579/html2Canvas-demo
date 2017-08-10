@@ -7,8 +7,8 @@
 - Firefox 3.5+
 - Google Chrome
 - Opera 12+
-- IE9+
 - Safari 6+
+- IE9+
 
 
 ## 可用参数
